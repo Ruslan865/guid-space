@@ -1,0 +1,4 @@
+body{font-family: 'Segoe UI',sans-serif; background:#f4f4f4;color:#333;margin:0;padding:0;text-aling: center;}
+header {background: #6200ea;color:white;padding: 2em 1em;}
+main{padding: 2em 1em;}
+footer{background: #222;color:white;padding: 1em;position: fixed; width: 100%; bottom: 0;}

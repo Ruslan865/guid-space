@@ -1,110 +1,113 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>guid.space</title>
+  <meta charset="UTF-8">
+  <title>guid.space – Ağıllı Bələdçi</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #3b5998, #1e3c72);
-      color: white;
       text-align: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
     }
-
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background: rgba(0, 0, 0, 0.2);
+      background-color: #333;
+      color: white;
+      padding: 10px;
     }
-
-    nav a {
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav ul li a {
       color: white;
       text-decoration: none;
-      margin: 0 10px;
-      font-weight: bold;
     }
-
     select {
+      margin-left: 20px;
       padding: 5px;
-      border-radius: 5px;
-      border: none;
     }
-
-    .container {
-      padding: 60px 20px;
+    main {
+      padding: 40px 20px;
     }
-
-    .button {
-      background-color: white;
-      color: #1e3c72;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 24px;
-      font-size: 18px;
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
-      margin-top: 20px;
     }
   </style>
 </head>
 <body>
   <header>
-    <div>
-      <nav>
-        <a href="#">Ana səhifə</a>
-        <a href="#">Haqqımızda</a>
-        <a href="#">Modullar</a>
-        <a href="#">Əlaqə</a>
-      </nav>
-    </div>
-    <div>
-      <select id="languageSwitcher">
+    <nav>
+      <ul>
+        <li><a id="nav-home" href="#"></a></li>
+        <li><a id="nav-modules" href="#"></a></li>
+        <li><a id="nav-about" href="#"></a></li>
+        <li><a id="nav-contact" href="#"></a></li>
+      </ul>
+      <select id="language-switcher" onchange="switchLanguage()">
         <option value="az">AZ</option>
-        <option value="en">EN</option>
+        <option value="en" selected>EN</option>
         <option value="ru">RU</option>
       </select>
-    </div>
+    </nav>
   </header>
 
-  <div class="container">
-    <h1 id="mainTitle">Salam! guid.space saytıdır!</h1>
-    <p id="subtitle">Gələcəyin ağıllı bələdçisinə xoş gəlmisən.</p>
-    <button class="button" id="startButton">Başla</button>
-  </div>
+  <main>
+    <h1 id="welcome-title"></h1>
+    <p id="welcome-text"></p>
+    <button id="start-button"></button>
+  </main>
 
   <script>
     const translations = {
       az: {
-        title: "Salam! guid.space saytıdır!",
-        subtitle: "Gələcəyin ağıllı bələdçisinə xoş gəlmisən.",
-        button: "Başla"
+        welcomeTitle: "Salam! guid.space-ə xoş gəlmisiniz!",
+        welcomeText: "Gələcəyin ağıllı bələdçisinə xoş gəlmisiniz.",
+        startButton: "Başla",
+        home: "Ana səhifə",
+        modules: "Modullar",
+        about: "Haqqımızda",
+        contact: "Əlaqə"
       },
       en: {
-        title: "Hello! Welcome to guid.space!",
-        subtitle: "Welcome to the smart guide of the future.",
-        button: "Start"
+        welcomeTitle: "Hello! Welcome to guid.space!",
+        welcomeText: "Welcome to the smart guide of the future.",
+        startButton: "Start",
+        home: "Home",
+        modules: "Modules",
+        about: "About Us",
+        contact: "Contact"
       },
       ru: {
-        title: "Привет! Это сайт guid.space!",
-        subtitle: "Добро пожаловать в умного проводника будущего.",
-        button: "Начать"
+        welcomeTitle: "Здравствуйте! Добро пожаловать в guid.space!",
+        welcomeText: "Добро пожаловать в умный гид будущего.",
+        startButton: "Начать",
+        home: "Главная",
+        modules: "Модули",
+        about: "О нас",
+        contact: "Контакты"
       }
     };
 
-    const switcher = document.getElementById('languageSwitcher');
-    const mainTitle = document.getElementById('mainTitle');
-    const subtitle = document.getElementById('subtitle');
-    const startButton = document.getElementById('startButton');
+    function switchLanguage() {
+      const lang = document.getElementById('language-switcher').value;
+      document.getElementById('welcome-title').textContent = translations[lang].welcomeTitle;
+      document.getElementById('welcome-text').textContent = translations[lang].welcomeText;
+      document.getElementById('start-button').textContent = translations[lang].startButton;
+      document.getElementById('nav-home').textContent = translations[lang].home;
+      document.getElementById('nav-modules').textContent = translations[lang].modules;
+      document.getElementById('nav-about').textContent = translations[lang].about;
+      document.getElementById('nav-contact').textContent = translations[lang].contact;
+    }
 
-    switcher.addEventListener('change', (e) => {
-      const lang = e.target.value;
-      mainTitle.textContent = translations[lang].title;
-      subtitle.textContent = translations[lang].subtitle;
-      startButton.textContent = translations[lang].button;
-    });
+    window.onload = switchLanguage;
   </script>
 </body>
 </html>

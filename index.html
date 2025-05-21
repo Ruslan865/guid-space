@@ -6,116 +6,49 @@
   <title>guid.space</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      background-color: #1e90ff;
+      color: white;
+      font-family: sans-serif;
       text-align: center;
-      background-color: #007BFF; /* Göy fon */
-      color: white;
       margin: 0;
       padding: 0;
-    }
-
-    header {
-      background-color: #0056b3;
-      color: white;
-      padding: 10px;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 20px;
+      align-items: center;
+      height: 100vh;
     }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-    }
-
     select {
-      margin-left: 20px;
-      padding: 5px;
-      background-color: white;
-      color: black;
-      border-radius: 5px;
-    }
-
-    main {
-      padding: 40px 20px;
-    }
-
-    button {
-      padding: 10px 20px;
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 8px;
       font-size: 16px;
-      cursor: pointer;
-      background-color: white;
-      color: #007BFF;
-      border: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
     }
-
-    button:hover {
-      background-color: #e0e0e0;
-    }
-
-    .smile {
+    .smiley {
       font-size: 80px;
-      margin-top: 30px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1 id="title">Salam, bu guid.space saytıdır!</h1>
-    <select id="language" onchange="changeLanguage()">
-      <option value="az">Azərbaycan</option>
-      <option value="en">English</option>
-      <option value="ru">Русский</option>
-      <option value="tr">Türkçe</option>
-      <option value="fr">Français</option>
-      <option value="de">Deutsch</option>
-    </select>
-  </header>
-  <main>
-    <p id="desc">Bura sizin bələdçi saytınızdır. Tezliklə yeni məlumatlar əlavə olunacaq!</p>
-    <div class="smile">😊</div>
-  </main>
+  <div class="smiley">😊</div>
+  <h1 id="text">Salam! Bu guid.space saytıdır.</h1>
+  <select onchange="changeLanguage(this.value)">
+    <option value="az">Azərbaycan</option>
+    <option value="en">English</option>
+    <option value="tr">Türkçe</option>
+    <option value="ru">Русский</option>
+  </select>
 
   <script>
-    const texts = {
-      az: {
-        title: "Salam, bu guid.space saytıdır!",
-        desc: "Bura sizin bələdçi saytınızdır. Tezliklə yeni məlumatlar əlavə olunacaq!"
-      },
-      en: {
-        title: "Hello, this is the guid.space site!",
-        desc: "This is your guide site. New content will be added soon!"
-      },
-      ru: {
-        title: "Здравствуйте, это сайт guid.space!",
-        desc: "Это ваш сайт-путеводитель. Скоро будет добавлен новый контент!"
-      },
-      tr: {
-        title: "Merhaba, bu guid.space sitesidir!",
-        desc: "Bu sizin rehber sitenizdir. Yakında yeni içerikler eklenecek!"
-      },
-      fr: {
-        title: "Bonjour, voici le site guid.space !",
-        desc: "Voici votre site guide. Du nouveau contenu sera bientôt ajouté !"
-      },
-      de: {
-        title: "Hallo, das ist die Seite guid.space!",
-        desc: "Dies ist Ihre Guide-Seite. Neue Inhalte folgen bald!"
-      }
+    const translations = {
+      az: "Salam! Bu guid.space saytıdır.",
+      en: "Hello! This is the guid.space website.",
+      tr: "Merhaba! Bu guid.space sitesidir.",
+      ru: "Привет! Это сайт guid.space."
     };
-
-    function changeLanguage() {
-      const lang = document.getElementById("language").value;
-      document.getElementById("title").innerText = texts[lang].title;
-      document.getElementById("desc").innerText = texts[lang].desc;
+    function changeLanguage(lang) {
+      document.getElementById("text").innerText = translations[lang] || translations.az;
     }
   </script>
 </body>

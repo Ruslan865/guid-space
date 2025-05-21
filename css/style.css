@@ -1,0 +1,36 @@
+body {
+  background: linear-gradient(to right, #1d1d1d, #2c2c2c);
+  color: white;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding-top: 80px;
+}
+
+.smile {
+  font-size: 60px;
+  margin-bottom: 30px;
+}
+
+button, .payment {
+  padding: 12px 24px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background-color: #00aaff;
+  color: white;
+  cursor: pointer;
+}
+
+input, textarea {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+}

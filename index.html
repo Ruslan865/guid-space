@@ -1,84 +1,20 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Al Eye</title>
-<style>
-  body {
-    margin: 0;
-    background: linear-gradient(135deg, #0D47A1, #1976D2);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    text-align: center;
-    padding: 20px;
-    position: relative;
-  }
-  .bg-icon {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 160px;
-    height: 160px;
-    background: url('https://cdn-icons-png.flaticon.com/512/2922/2922566.png') no-repeat center center;
-    background-size: contain;
-    opacity: 0.08;
-    z-index: 0;
-  }
-  .smile {
-    font-size: 5rem;
-    margin-bottom: 30px;
-    text-shadow: 0 0 10px #fff6;
-    z-index: 1;
-  }
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 1;
-    width: 100%;
-    max-width: 300px;
-  }
-  button {
-    background-color: rgba(255,255,255,0.15);
-    border: 1.5px solid white;
-    border-radius: 25px;
-    padding: 10px 0;
-    font-size: 1rem;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-  }
-  button:hover {
-    background-color: rgba(255,255,255,0.3);
-  }
-  .payment {
-    font-size: 2rem;
-    margin-top: 40px;
-    z-index: 1;
-  }
-</style>
+  <meta charset="UTF-8">
+  <title data-i18n="title">Al Eye – Ağıllı Yoldaşınız</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
 </head>
 <body>
+  <div class="container">
+    <div class="smile">😊</div>
+    <h1 data-i18n="headline">Al Eye – Gələcəyin Ağıllı Yoldaşı</h1>
 
-  <div class="bg-icon"></div>
-
-  <div class="smile">&#128522;</div>
-
-  <div class="buttons">
-    <button onclick="alert('Start: Sistem işə düşür...')">Start</button>
-    <button onclick="alert('Modullar: Burada modullar göstəriləcək.')">Modullar</button>
-    <button onclick="alert('Əlaqə: Əlaqə məlumatları burada olacaq.')">Əlaqə</button>
+    <a href="modules.html"><button data-i18n="modules">Modullar</button></a>
+    <a href="contact.html"><button data-i18n="contact">Əlaqə</button></a>
+    <a href="payment.html"><button>$</button></a>
+    <button onclick="startExperience()" data-i18n="start">Başla</button>
   </div>
-
-  <div class="payment">$</div>
-
 </body>
 </html>

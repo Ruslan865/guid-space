@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dost Modulu</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #101820, #1d2b3a);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .smiley {
+      font-size: 100px;
+      margin-bottom: 20px;
+      transition: transform 0.3s;
+    }
+
+    .smiley:hover {
+      transform: scale(1.1);
+    }
+
+    .message {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #00aaff;
+      border: none;
+      color: white;
+      padding: 14px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+    }
+
+    .btn:hover {
+      background-color: #0088cc;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="smiley">😊</div>
+  <div class="message" id="message">Salam, dostum! Necə hiss edirsən özünü?</div>
+  
+  <button class="btn" onclick="respond('good')">Əla hiss edirəm</button>
+  <button class="btn" onclick="respond('bad')">Pis hiss edirəm</button>
+
+  <br><br>
+  <button class="btn" onclick="goBack()">🔙 Geri</button>
+
+  <audio id="audioGood" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+  <audio id="audioBad" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"></audio>
+
+  <script>
+    function respond(mood) {
+      const msg = document.getElementById("message");
+      const audioGood = document.getElementById("audioGood");
+      const audioBad = document.getElementById("audioBad");
+
+      if (mood === 'good') {
+        msg.innerText = "Çox sevindim! Mən də səninlə birgə gülümsəyirəm! 😊";
+        audioGood.play();
+      } else {
+        msg.innerText = "Üzülmə, mən buradayam. Gəlin birlikdə gününü gözəlləşdirək 💙";
+        audioBad.play();
+      }
+    }
+
+    function goBack() {
+      window.location.href = 'modules.html';
+    }
+  </script>
+</body>
+</html>

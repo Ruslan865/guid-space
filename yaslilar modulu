@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Al Eye – Yaşlılara Dəstək Modulu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <div class="max-w-3xl mx-auto p-6">
+    <div class="bg-white shadow-xl rounded-2xl p-6">
+      <div class="flex items-center justify-between mb-5">
+        <h1 class="text-2xl font-bold text-pink-700">👵 Al Eye – Yaşlılara Dəstək Modulu</h1>
+        <span class="text-green-600 font-medium text-sm">Canlı Baxışda</span>
+      </div>
+
+      <!-- Emosional Bağ Mesajı -->
+      <div class="bg-pink-50 p-4 rounded-xl mb-6 shadow">
+        <h2 class="text-xl font-semibold mb-2">💬 Mesaj</h2>
+        <p class="italic">“Salam əzizim, günün necə keçir? Səninlə danışmaq mənim üçün xoşdur.”</p>
+        <p class="text-right text-sm mt-2 text-pink-600">— Səs tonu: Nəvən Aysel</p>
+      </div>
+
+      <!-- Gündəlik Qulluq xatırlatmaları -->
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-3">📋 Bu Günün Qulluq Tapşırıqları</h2>
+        <ul class="list-disc list-inside text-gray-800 space-y-1">
+          <li>💊 09:00 – Dərman qəbul et</li>
+          <li>🚶 11:00 – Kiçik gəzinti et</li>
+          <li>🥗 13:00 – Yüngül nahar vaxtıdır</li>
+          <li>🧘 17:00 – Nəfəs məşqləri (3 dəqiqə)</li>
+        </ul>
+      </div>
+
+      <!-- Xatirə paylaşımı -->
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-3">📸 Xatirə Paylaşımı</h2>
+        <div class="bg-yellow-50 p-4 rounded-xl shadow">
+          <p class="mb-2">“Bu şəkil 1985-ci ildə Gəncədə çəkilib. Gül bağçasında nənəmlə.”</p>
+          <img src="https://via.placeholder.com/300x180" alt="Xatirə şəkli" class="rounded-xl">
+        </div>
+      </div>
+
+      <!-- Sual-cavab (emosional monitorinq üçün) -->
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-3">🧠 Özünü necə hiss edirsən?</h2>
+        <div class="grid grid-cols-2 gap-4">
+          <button class="bg-green-100 p-3 rounded-xl hover:bg-green-200">😊 Yaxşıyam</button>
+          <button class="bg-red-100 p-3 rounded-xl hover:bg-red-200">😔 Özümü zəif hiss edirəm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

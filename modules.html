@@ -3,79 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <title>Al Eye - Modullar</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <script src="js/modules.js" defer></script>
   <style>
     body {
-      background: #121212;
-      color: #eee;
+      background: #0f0f0f;
+      color: white;
       font-family: Arial, sans-serif;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 40px 20px;
     }
     h1 {
       margin-bottom: 30px;
     }
-    .module-list button {
-      display: block;
-      width: 200px;
-      margin: 10px auto;
-      padding: 15px 20px;
-      font-size: 18px;
-      border-radius: 10px;
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .module-btn {
+      background-color: #007bff;
       border: none;
-      background-color: #0099ff;
+      padding: 15px 10px;
+      border-radius: 12px;
       color: white;
+      font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: 0.2s;
     }
-    .module-list button:hover {
-      background-color: #007acc;
+    .module-btn:hover {
+      background-color: #005bbb;
     }
-    .module-list p {
-      max-width: 300px;
-      margin: 0 auto 20px;
-      font-size: 14px;
-      color: #bbb;
-    }
-    a button {
+    .back-btn {
       margin-top: 40px;
       background-color: #555;
       width: 120px;
     }
-    a button:hover {
+    .back-btn:hover {
       background-color: #333;
     }
   </style>
 </head>
 <body>
-  <h1>Al Eye Modulları</h1>
-  <div class="module-list">
-    <button onclick="openModule('Dost')">Dost (Friend)</button>
-    <p>İstifadəçiyə dost kimi səmimi dəstək verən modul.</p>
-
-    <button onclick="openModule('Müəllim')">Müəllim (Teacher)</button>
-    <p>Təhsil və öyrənmə üçün köməkçi modul.</p>
-
-    <button onclick="openModule('Həkim')">Həkim (Doctor)</button>
-    <p>Səhiyyə ilə bağlı məlumat və məsləhətlər.</p>
-
-    <button onclick="openModule('Dayə')">Dayə (Caretaker)</button>
-    <p>Qayğı və gündəlik dəstək təmin edən modul.</p>
-
-    <button onclick="openModule('İdmançı')">İdmançı (Athlete)</button>
-    <p>Fiziki fəaliyyət və idman proqramları üçün.</p>
-
-    <button onclick="openModule('Psixoloq')">Psixoloq (Psychologist)</button>
-    <p>Psixoloji dəstək və rahatlama üçün.</p>
+  <h1>Modullar</h1>
+  <div class="module-grid">
+    <button class="module-btn" onclick="openModule('Dost')">Dost</button>
+    <button class="module-btn" onclick="openModule('Müəllim')">Müəllim</button>
+    <button class="module-btn" onclick="openModule('Həkim')">Həkim</button>
+    <button class="module-btn" onclick="openModule('Dayə')">Dayə</button>
+    <button class="module-btn" onclick="openModule('İdmançı')">İdmançı</button>
+    <button class="module-btn" onclick="openModule('Psixoloq')">Psixoloq</button>
+    <button class="module-btn" onclick="openModule('Uşaq & Ailə')">Uşaq & Ailə</button>
+    <button class="module-btn" onclick="openModule('Yaşlılar')">Yaşlılar</button>
+    <button class="module-btn" onclick="openModule('Avtomobil')">Avtomobil</button>
   </div>
 
-  <a href="index.html"><button>Geri</button></a>
+  <button class="module-btn back-btn" onclick="window.location.href='index.html'">Geri</button>
 
   <script>
     function openModule(name) {
-      alert(name + " modulu aktivləşdirildi!");
-      // Burada istəsən modulun öz səhifəsinə yönləndirə bilərsən, məsələn:
+      alert(name + " modulu aktivdir!");
+      // Əgər səhifəyə keçid etmək istəyirsənsə, burada link verə bilərsən.
       // window.location.href = name.toLowerCase() + ".html";
     }
   </script>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Müəllim Modulu</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #1e1e2f, #2a416d);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    .message {
+      font-size: 22px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #ffaa00;
+      border: none;
+      color: white;
+      padding: 14px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin: 10px;
+    }
+
+    .btn:hover {
+      background-color: #cc8800;
+    }
+
+    .question {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    #feedback {
+      margin-top: 20px;
+      font-size: 18px;
+      color: lightgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon">🎓</div>
+  <div class="message">Salam, mən sənin müəlliminəm. Hazırsansa, başlayaq!</div>
+
+  <div class="question" id="question">1+1 neçə edir?</div>
+
+  <button class="btn" onclick="checkAnswer(2)">2</button>
+  <button class="btn" onclick="checkAnswer(3)">3</button>
+  <button class="btn" onclick="checkAnswer(5)">5</button>
+
+  <div id="feedback"></div>
+
+  <br><br>
+  <button class="btn" onclick="goBack()">🔙 Geri</button>
+
+  <audio id="correct" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"></audio>
+  <audio id="wrong" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3"></audio>
+
+  <script>
+    function checkAnswer(ans) {
+      const feedback = document.getElementById("feedback");
+      const correct = document.getElementById("correct");
+      const wrong = document.getElementById("wrong");
+
+      if (ans === 2) {
+        feedback.innerText = "Əla! Düz cavab verdin!";
+        correct.play();
+      } else {
+        feedback.innerText = "Təəssüf, yanlış cavab. Gəlin yenidən cəhd edək!";
+        wrong.play();
+      }
+    }
+
+    function goBack() {
+      window.location.href = 'modules.html';
+    }
+  </script>
+</body>
+</html>

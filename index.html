@@ -1,55 +1,97 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>guid.space</title>
-  <style>
-    body {
-      background-color: #1e90ff;
-      color: white;
-      font-family: sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    select {
-      margin-top: 20px;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-    .smiley {
-      font-size: 80px;
-      margin-bottom: 20px;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Al Eye Promo</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #0D47A1, #1976D2); /* Göy fon gradient */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+  }
+  .slogan {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .slogan::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 140px;
+    background: url('https://cdn-icons-png.flaticon.com/512/2922/2922566.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.15;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+    border-radius: 50%;
+  }
+  .smile {
+    font-size: 6rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 8px #fff9, 0 0 15px #fff5;
+  }
+  .buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  button {
+    background-color: rgba(255,255,255,0.15);
+    border: 2px solid white;
+    border-radius: 30px;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: rgba(255,255,255,0.4);
+  }
+  .payments {
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  .payments img {
+    width: 50px;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+</style>
 </head>
 <body>
-  <div class="smiley">😊</div>
-  <h1 id="text">Salam! Bu guid.space saytıdır.</h1>
-  <select onchange="changeLanguage(this.value)">
-    <option value="az">Azərbaycan</option>
-    <option value="en">English</option>
-    <option value="tr">Türkçe</option>
-    <option value="ru">Русский</option>
-  </select>
 
-  <script>
-    const translations = {
-      az: "Salam! Bu guid.space saytıdır.",
-      en: "Hello! This is the guid.space website.",
-      tr: "Merhaba! Bu guid.space sitesidir.",
-      ru: "Привет! Это сайт guid.space."
-    };
-    function changeLanguage(lang) {
-      document.getElementById("text").innerText = translations[lang] || translations.az;
-    }
-  </script>
+  <div class="slogan">İnsan üzü – Yarı İnsan, Yarı Robot</div>
+
+  <div class="smile">&#128522;</div> <!-- Gülümsəyən smail -->
+
+  <div class="buttons">
+    <button>Start</button>
+    <button>Modullar</button>
+    <button>Əlaqə</button>
+  </div>
+
+  <div class="payments">
+    <span>$</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Pay" title="Google Pay" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" title="Visa" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="MasterCard" title="MasterCard" />
+  </div>
+
 </body>
 </html>

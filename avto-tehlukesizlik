@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Eye – Avtomobil Təhlükəsizlik Modulu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+  <div class="max-w-5xl mx-auto p-6">
+    <div class="bg-gray-800 rounded-2xl shadow-xl p-6 space-y-6">
+      <h1 class="text-3xl font-bold text-green-400">🚗 Al Eye – Avtomobil və Təhlükəsizlik Analizi</h1>
+
+      <!-- Sürücü davranışı -->
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <h2 class="text-xl font-semibold text-yellow-300">🧠 Sürücü Davranışı Analizi</h2>
+        <ul class="list-disc list-inside text-gray-200 mt-2">
+          <li>Göz qırpma tezliyi: <span class="text-green-400">Normal</span></li>
+          <li>Yorğunluq səviyyəsi: <span class="text-yellow-400">Orta</span></li>
+          <li>Emosional vəziyyət: <span class="text-red-400">Stress</span></li>
+        </ul>
+        <p class="mt-2 italic text-orange-300">“Zəhmət olmasa dayan və dincəl – emosional stress qeydə alındı.”</p>
+      </div>
+
+      <!-- Ətraf təhlükə analizi -->
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <h2 class="text-xl font-semibold text-red-400">🚨 Yol və Ətraf Təhlükə</h2>
+        <ul class="list-disc list-inside text-gray-200 mt-2">
+          <li>Qarşıda: <span class="text-red-400">Piyada yaxınlaşır (10m)</span></li>
+          <li>Yan aynada: <span class="text-yellow-300">Avtomobil sürətlə yaxınlaşır</span></li>
+        </ul>
+        <p class="mt-2 italic text-red-400 font-semibold">⚠️ XƏBƏRDARLIQ: Yavaşla və diqqətli ol!</p>
+      </div>
+
+      <!-- Uşaq aşkarlanması -->
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <h2 class="text-xl font-semibold text-blue-300">👶 Uşaq Aşkarlanması</h2>
+        <p class="text-gray-200 mt-2">Uşaq kreslosu aktiv və uşaq mövcuddur.</p>
+        <p class="italic text-yellow-300">“Sürücüdən ayrıldıqdan sonra avtomobili yoxlamağı unutma.”</p>
+      </div>
+
+      <!-- Səsli kömək və əyləncə -->
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <h2 class="text-xl font-semibold text-indigo-300">🎙️ Səsli İdarə və Əyləncə</h2>
+        <p class="text-gray-200">Sual verin və ya əmr edin:</p>
+        <ul class="list-disc list-inside text-gray-300 mt-2">
+          <li>"Al Eye, mən yorğunam" → Dincəlmə təklifi və musiqi</li>
+          <li>"Təhlükəsizlik yoxlaması et"</li>
+          <li>"Mənim əhvalım necədir?"</li>
+        </ul>
+      </div>
+
+      <!-- Təhlükəsizlik statistikası -->
+      <div class="bg-gray-700 p-4 rounded-xl">
+        <h2 class="text-xl font-semibold text-green-300">📊 Təhlükəsizlik Xülasəsi</h2>
+        <div class="grid grid-cols-2 gap-4 mt-3 text-center">
+          <div class="bg-gray-600 p-4 rounded-lg">
+            <h3 class="text-lg font-bold text-white">Sürət Ortalaması</h3>
+            <p class="text-2xl text-yellow-200">63 km/s</p>
+          </div>
+          <div class="bg-gray-600 p-4 rounded-lg">
+            <h3 class="text-lg font-bold text-white">Təhlükə Xəbərləri</h3>
+            <p class="text-2xl text-red-300">2 xəbərdarlıq</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

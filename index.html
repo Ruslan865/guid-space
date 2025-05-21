@@ -1,21 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 <head>
-  <meta charset="UTF-8">
-  <title>guid.space – Ağıllı Bələdçi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>guid.space</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      background-color: #f4f4f4;
+      background-color: #007BFF; /* Göy fon */
+      color: white;
       margin: 0;
       padding: 0;
     }
+
     header {
-      background-color: #333;
+      background-color: #0056b3;
       color: white;
       padding: 10px;
     }
+
     nav ul {
       list-style: none;
       padding: 0;
@@ -24,90 +28,95 @@
       justify-content: center;
       gap: 20px;
     }
+
     nav ul li a {
       color: white;
       text-decoration: none;
     }
+
     select {
       margin-left: 20px;
       padding: 5px;
+      background-color: white;
+      color: black;
+      border-radius: 5px;
     }
+
     main {
       padding: 40px 20px;
     }
+
     button {
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
+      background-color: white;
+      color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .smile {
+      font-size: 80px;
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <ul>
-        <li><a id="nav-home" href="#"></a></li>
-        <li><a id="nav-modules" href="#"></a></li>
-        <li><a id="nav-about" href="#"></a></li>
-        <li><a id="nav-contact" href="#"></a></li>
-      </ul>
-      <select id="language-switcher" onchange="switchLanguage()">
-        <option value="az">AZ</option>
-        <option value="en" selected>EN</option>
-        <option value="ru">RU</option>
-      </select>
-    </nav>
+    <h1 id="title">Salam, bu guid.space saytıdır!</h1>
+    <select id="language" onchange="changeLanguage()">
+      <option value="az">Azərbaycan</option>
+      <option value="en">English</option>
+      <option value="ru">Русский</option>
+      <option value="tr">Türkçe</option>
+      <option value="fr">Français</option>
+      <option value="de">Deutsch</option>
+    </select>
   </header>
-
   <main>
-    <h1 id="welcome-title"></h1>
-    <p id="welcome-text"></p>
-    <button id="start-button"></button>
+    <p id="desc">Bura sizin bələdçi saytınızdır. Tezliklə yeni məlumatlar əlavə olunacaq!</p>
+    <div class="smile">😊</div>
   </main>
 
   <script>
-    const translations = {
+    const texts = {
       az: {
-        welcomeTitle: "Salam! guid.space-ə xoş gəlmisiniz!",
-        welcomeText: "Gələcəyin ağıllı bələdçisinə xoş gəlmisiniz.",
-        startButton: "Başla",
-        home: "Ana səhifə",
-        modules: "Modullar",
-        about: "Haqqımızda",
-        contact: "Əlaqə"
+        title: "Salam, bu guid.space saytıdır!",
+        desc: "Bura sizin bələdçi saytınızdır. Tezliklə yeni məlumatlar əlavə olunacaq!"
       },
       en: {
-        welcomeTitle: "Hello! Welcome to guid.space!",
-        welcomeText: "Welcome to the smart guide of the future.",
-        startButton: "Start",
-        home: "Home",
-        modules: "Modules",
-        about: "About Us",
-        contact: "Contact"
+        title: "Hello, this is the guid.space site!",
+        desc: "This is your guide site. New content will be added soon!"
       },
       ru: {
-        welcomeTitle: "Здравствуйте! Добро пожаловать в guid.space!",
-        welcomeText: "Добро пожаловать в умный гид будущего.",
-        startButton: "Начать",
-        home: "Главная",
-        modules: "Модули",
-        about: "О нас",
-        contact: "Контакты"
+        title: "Здравствуйте, это сайт guid.space!",
+        desc: "Это ваш сайт-путеводитель. Скоро будет добавлен новый контент!"
+      },
+      tr: {
+        title: "Merhaba, bu guid.space sitesidir!",
+        desc: "Bu sizin rehber sitenizdir. Yakında yeni içerikler eklenecek!"
+      },
+      fr: {
+        title: "Bonjour, voici le site guid.space !",
+        desc: "Voici votre site guide. Du nouveau contenu sera bientôt ajouté !"
+      },
+      de: {
+        title: "Hallo, das ist die Seite guid.space!",
+        desc: "Dies ist Ihre Guide-Seite. Neue Inhalte folgen bald!"
       }
     };
 
-    function switchLanguage() {
-      const lang = document.getElementById('language-switcher').value;
-      document.getElementById('welcome-title').textContent = translations[lang].welcomeTitle;
-      document.getElementById('welcome-text').textContent = translations[lang].welcomeText;
-      document.getElementById('start-button').textContent = translations[lang].startButton;
-      document.getElementById('nav-home').textContent = translations[lang].home;
-      document.getElementById('nav-modules').textContent = translations[lang].modules;
-      document.getElementById('nav-about').textContent = translations[lang].about;
-      document.getElementById('nav-contact').textContent = translations[lang].contact;
+    function changeLanguage() {
+      const lang = document.getElementById("language").value;
+      document.getElementById("title").innerText = texts[lang].title;
+      document.getElementById("desc").innerText = texts[lang].desc;
     }
-
-    window.onload = switchLanguage;
   </script>
 </body>
 </html>

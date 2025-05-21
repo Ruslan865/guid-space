@@ -1,24 +1,83 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modullar</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>Al Eye - Modullar</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/modules.js" defer></script>
+  <style>
+    body {
+      background: #121212;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      margin-bottom: 30px;
+    }
+    .module-list button {
+      display: block;
+      width: 200px;
+      margin: 10px auto;
+      padding: 15px 20px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      background-color: #0099ff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .module-list button:hover {
+      background-color: #007acc;
+    }
+    .module-list p {
+      max-width: 300px;
+      margin: 0 auto 20px;
+      font-size: 14px;
+      color: #bbb;
+    }
+    a button {
+      margin-top: 40px;
+      background-color: #555;
+      width: 120px;
+    }
+    a button:hover {
+      background-color: #333;
+    }
+  </style>
 </head>
 <body>
-  <h1>Modullar</h1>
-  <ul>
-    <li>Dost Modu</li>
-    <li>Müəllim Modu</li>
-    <li>Həkim Modu</li>
-    <li>Dayə Modu</li>
-    <li>İdmançı Modu</li>
-    <li>Psixoloq Modu</li>
-    <li>Uşaq və Ailə Modulu</li>
-    <li>Yaşlılara Dəstək Modulu</li>
-    <li>Avtomobil və Hərəkət Modulu</li>
-  </ul>
+  <h1>Al Eye Modulları</h1>
+  <div class="module-list">
+    <button onclick="openModule('Dost')">Dost (Friend)</button>
+    <p>İstifadəçiyə dost kimi səmimi dəstək verən modul.</p>
+
+    <button onclick="openModule('Müəllim')">Müəllim (Teacher)</button>
+    <p>Təhsil və öyrənmə üçün köməkçi modul.</p>
+
+    <button onclick="openModule('Həkim')">Həkim (Doctor)</button>
+    <p>Səhiyyə ilə bağlı məlumat və məsləhətlər.</p>
+
+    <button onclick="openModule('Dayə')">Dayə (Caretaker)</button>
+    <p>Qayğı və gündəlik dəstək təmin edən modul.</p>
+
+    <button onclick="openModule('İdmançı')">İdmançı (Athlete)</button>
+    <p>Fiziki fəaliyyət və idman proqramları üçün.</p>
+
+    <button onclick="openModule('Psixoloq')">Psixoloq (Psychologist)</button>
+    <p>Psixoloji dəstək və rahatlama üçün.</p>
+  </div>
+
   <a href="index.html"><button>Geri</button></a>
+
+  <script>
+    function openModule(name) {
+      alert(name + " modulu aktivləşdirildi!");
+      // Burada istəsən modulun öz səhifəsinə yönləndirə bilərsən, məsələn:
+      // window.location.href = name.toLowerCase() + ".html";
+    }
+  </script>
 </body>
 </html>

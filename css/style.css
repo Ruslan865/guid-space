@@ -16,7 +16,7 @@ body {
   margin-bottom: 30px;
 }
 
-button, .payment {
+button {
   padding: 12px 24px;
   margin: 10px;
   font-size: 16px;
@@ -25,12 +25,4 @@ button, .payment {
   background-color: #00aaff;
   color: white;
   cursor: pointer;
-}
-
-input, textarea {
-  width: 80%;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 6px;
-  border: none;
 }

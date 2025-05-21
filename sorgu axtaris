@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Al Eye – İnternet və AI Sorğu Modulu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white">
+  <div class="max-w-3xl mx-auto p-6">
+    <h1 class="text-3xl font-bold text-blue-400 mb-4">🔍 Al Eye – İnternet və Süni Zəka Axtarışı</h1>
+
+    <!-- Sorğu -->
+    <div class="mb-4">
+      <label for="query" class="block mb-2 text-lg text-gray-300">Nə axtarmaq istəyirsən?</label>
+      <input type="text" id="query" class="w-full p-3 rounded-lg text-black" placeholder="Məsələn: 'Marsda həyat varmı?'"/>
+    </div>
+
+    <!-- Axtarış düyməsi -->
+    <button onclick="searchQuery()" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded text-white font-semibold">
+      Axtarış et
+    </button>
+
+    <!-- Nəticə -->
+    <div class="mt-6 bg-gray-800 p-4 rounded-xl shadow">
+      <h2 class="text-xl text-yellow-400 font-semibold mb-2">🌐 Tapılan cavab:</h2>
+      <p id="result" class="text-gray-100">Sorğunu gözləyirəm...</p>
+    </div>
+  </div>
+
+  <script>
+    async function searchQuery() {
+      const query = document.getElementById("query").value.trim();
+      const resultBox = document.getElementById("result");
+
+      if (!query) {
+        resultBox.textContent = "Zəhmət olmasa sual yazın.";
+        return;
+      }
+
+      // Google & You.com linkləri (istəyə görə dəyişilə bilər)
+      const googleURL = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+      const youcomURL = `https://you.com/search?q=${encodeURIComponent(query)}`;
+      const bingURL = `https://www.bing.com/search?q=${encodeURIComponent(query)}`;
+
+      resultBox.innerHTML = `
+        Axtarış icra olunur. Nəticəyə baxmaq üçün aşağıdakı linklərdən birini kliklə:
+        <ul class="list-disc list-inside mt-2">
+          <li><a href="${googleURL}" target="_blank" class="text-blue-400 underline">🔎 Google-da bax</a></li>
+          <li><a href="${youcomURL}" target="_blank" class="text-purple-400 underline">🤖 You.com-da bax</a></li>
+          <li><a href="${bingURL}" target="_blank" class="text-green-400 underline">🌐 Bing-də bax</a></li>
+        </ul>
+      `;
+
+      speak("Axtarış nəticələri hazırdır, bağlantılardan birini seçə bilərsən.");
+    }
+
+    function speak(text) {
+      const synth = window.speechSynthesis;
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "az-AZ";
+      synth.speak(utter);
+    }
+  </script>
+</body>
+</html>

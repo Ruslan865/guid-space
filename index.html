@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html lang="az">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title data-i18n="title">Al Eye – Ağıllı Yoldaşınız</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/app.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al Eye Technologies</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js"></script>
 </head>
 <body>
-  <div class="container">
-    <div class="smile">😊</div>
-    <h1 data-i18n="headline">Al Eye – Gələcəyin Ağıllı Yoldaşı</h1>
+  <nav class="navbar">
+    <div class="logo">Al Eye</div>
+    <div class="burger" onclick="toggleMenu()">&#9776;</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" onclick="activateModule('friend')">Friend</a></li>
+      <li><a href="#" onclick="activateModule('teacher')">Teacher</a></li>
+      <li><a href="#" onclick="activateModule('doctor')">Doctor</a></li>
+      <li><a href="#" onclick="activateModule('caretaker')">Caretaker</a></li>
+      <li><a href="#" onclick="activateModule('athlete')">Athlete</a></li>
+      <li><a href="#" onclick="activateModule('psychologist')">Psychologist</a></li>
+      <li><a href="#" onclick="activateModule('elder')">Elder</a></li>
+      <li><a href="#" onclick="activateModule('child')">Child</a></li>
+      <li><a href="#" onclick="activateModule('car')">Car</a></li>
+      <li><a href="#" onclick="activateModule('commerce')">$</a></li>
+    </ul>
+  </nav>
 
-    <a href="modules.html"><button data-i18n="modules">Modullar</button></a>
-    <a href="contact.html"><button data-i18n="contact">Əlaqə</button></a>
-    <a href="payment.html"><button>$</button></a>
-    <button onclick="startExperience()" data-i18n="start">Başla</button>
-  </div>
+  <header class="hero">
+    <h1>Welcome to Al Eye Technologies</h1>
+    <img src="robot.png" alt="AI Avatar" class="avatar">
+    <button onclick="startExperience()">Start</button>
+  </header>
+
+  <section id="moduleOutput" class="output"></section>
 </body>
 </html>

@@ -1,48 +1,34 @@
-const translations = {
-  az: {
-    title: "Al Eye – Ağıllı Yoldaşınız",
-    headline: "Al Eye – Gələcəyin Ağıllı Yoldaşı",
-    modules: "Modullar",
-    contact: "Əlaqə",
-    start: "Başla"
-  },
-  en: {
-    title: "Al Eye – Your Smart Companion",
-    headline: "Al Eye – The Smart Assistant of the Future",
-    modules: "Modules",
-    contact: "Contact",
-    start: "Start"
-  },
-  tr: {
-    title: "Al Eye – Akıllı Yardımcınız",
-    headline: "Al Eye – Geleceğin Akıllı Yol Arkadaşı",
-    modules: "Modüller",
-    contact: "İletişim",
-    start: "Başlat"
-  }
-};
+// Modul klik hadisələri üçün
+document.addEventListener("DOMContentLoaded", () => {
+  const modules = document.querySelectorAll(".module-btn");
 
-function detectLanguage() {
-  const lang = navigator.language.slice(0, 2);
-  return translations[lang] ? lang : "az";
-}
-
-function applyTranslations() {
-  const lang = detectLanguage();
-  const t = translations[lang];
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    if (t[key]) el.innerText = t[key];
+  modules.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const moduleName = btn.getAttribute("data-module");
+      activateModule(moduleName);
+    });
   });
+});
+
+function activateModule(name) {
+  const statusBox = document.getElementById("statusBox");
+  statusBox.innerText = `Modul aktivdir: ${name}`;
+  
+  // Süni intellektlə sinxron (placeholder funksiyalar)
+  speak(`Activated ${name} module.`);
+  visualGuide(name);
 }
 
-function startExperience() {
-  const email = prompt("E-poçtunuzu daxil edin:");
-  if (email) {
-    const msg = new SpeechSynthesisUtterance("Salam, xoş gəlmisiniz!");
+function speak(text) {
+  if ('speechSynthesis' in window) {
+    const msg = new SpeechSynthesisUtterance(text);
+    msg.lang = "en-US";
     window.speechSynthesis.speak(msg);
-    alert("Vizual bələdçi aktiv edildi.");
   }
 }
 
-document.addEventListener("DOMContentLoaded", applyTranslations);
+function visualGuide(name) {
+  // Göstərişlər üçün sadə vizual təlimat
+  const guide = document.getElementById("visualGuide");
+  guide.innerText = `You are now in the ${name} module.`;
+}

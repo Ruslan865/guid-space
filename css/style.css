@@ -1,28 +1,91 @@
 body {
-  background: linear-gradient(to right, #1d1d1d, #2c2c2c);
-  color: white;
-  font-family: sans-serif;
-  text-align: center;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+  color: #fff;
 }
 
-.container {
-  padding-top: 80px;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(0,0,0,0.7);
 }
 
-.smile {
-  font-size: 60px;
-  margin-bottom: 30px;
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.burger {
+  font-size: 1.5rem;
+  display: none;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.nav-links li a:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.hero {
+  text-align: center;
+  padding: 2rem;
+}
+
+.avatar {
+  width: 100px;
+  margin: 1rem auto;
 }
 
 button {
-  padding: 12px 24px;
-  margin: 10px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: none;
-  background-color: #00aaff;
+  background: #28a745;
   color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
+}
+
+.output {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 1.2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.9);
+    padding: 1rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
 }

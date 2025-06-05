@@ -1,0 +1,14 @@
+{
+  "name": "guid-space",
+  "version": "1.0.0",
+  "description": "Süni zəka CatBot - Al Eye Demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Al Eye Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

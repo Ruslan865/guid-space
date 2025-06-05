@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <title>Al Eye Chatbot</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 40px; }
+    .chat-container { background: white; padding: 20px; max-width: 600px; margin: auto; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    .chat { margin-bottom: 10px; }
+    .user { font-weight: bold; color: #333; }
+    .bot { color: #0078D7; }
+    #response { margin-top: 10px; white-space: pre-wrap; }
+    #sendBtn { margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat"><span class="bot">🤖 Al Eye:</span> Salam, mən Al Eye. Sizə necə kömək edə bilərəm?</div>
+    <textarea id="prompt" rows="3" style="width:100%" placeholder="Sualınızı yazın..."></textarea>
+    <button id="sendBtn">Göndər</button>
+    <div id="response" class="chat"></div>
+  </div>
+
+  <script>
+    document.getElementById("sendBtn").onclick = async () => {
+      const prompt = document.getElementById("prompt").value;
+      const res = await fetch("/ask", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt })
+      });
+      const data = await res.json();
+      document.getElementById("response").innerHTML = '<span class="bot">🤖 Cavab:</span> ' + data.response;
+    };
+  </script>
+</body>
+</html>

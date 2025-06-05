@@ -1,0 +1,20 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.static(__dirname));
+
+app.get('/chat', (req, res) => {
+  const userMessage = req.query.message?.toLowerCase();
+
+  let reply = "Bağışla, mən hələ öyrənirəm...";
+  if (userMessage.includes("salam")) reply = "Salam, mən Al Eye chatbotuyam! Nə kömək edə bilərəm?";
+  else if (userMessage.includes("hava")) reply = "Havanın necə olduğunu öyrənmək üçün hələ sensora qoşulmamışam.";
+  else if (userMessage.includes("səni kim yaratdı")) reply = "Məni Al Eye komandası yaratdı.";
+
+  res.send({ reply });
+});
+
+app.listen(port, () => {
+  console.log(`Catbot işləyir: http://localhost:${port}`);
+});

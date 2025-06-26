@@ -1,0 +1,1 @@
+from scraper_bing import search  # Edge axtarışını Bing vasitəsilə simulyasiya edirik

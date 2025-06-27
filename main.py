@@ -1,36 +1,41 @@
 import os
 import importlib
+from flask import Flask, request, jsonify, render_template
 from doc_creator import save_to_pdf
 from answer_selector import select_best_answer
+
+app = Flask(__name__)
 
 def run_search(query):
     scrapers = [f for f in os.listdir('.') if f.startswith("scraper_") and f.endswith(".py")]
     results_dict = {}
 
-    print("\n🔍 Axtarılır...\n")
-
     for scraper in scrapers:
-        module_name = scraper[:-3]  # remove .py
+        module_name = scraper[:-3]
         try:
             module = importlib.import_module(module_name)
             result = module.search(query)
             if result and isinstance(result, list):
                 results_dict[module_name.replace("scraper_", "")] = result
-                print(f"✅ {module_name.replace('scraper_', '').capitalize()} nəticəsi:")
-                print(f"- {result[0][:100]}...\n" if result[0] else "- Heç nə tapılmadı.\n")
-            else:
-                print(f"❌ {module_name.replace('scraper_', '').capitalize()} nəticə qaytarmadı.\n")
         except Exception as e:
-            print(f"🚫 {module_name.replace('scraper_', '').capitalize()} işlənərkən xəta: {e}\n")
+            print(f"Error in {module_name}: {e}")
 
     final_answer = select_best_answer(query, results_dict)
     save_to_pdf(query, [final_answer])
-    print("📄 PDF faylı yaradıldı: output.pdf\n")
+    return final_answer
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.get_json()
+    message = data.get('message', '')
+    if message:
+        answer = run_search(message)
+        return jsonify({'reply': answer})
+    return jsonify({'reply': 'Sual daxil edin'})
 
 if __name__ == "__main__":
-    while True:
-        user_input = input("💬 Sualınızı yazın (və ya 'exit' yazın): ").strip()
-        if user_input.lower() == "exit":
-            break
-        elif user_input:
-            run_search(user_input)
+    app.run(debug=True, port=5000)

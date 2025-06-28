@@ -1,2 +1,2 @@
-def search_wikipedia_multilang(query):
+def search(query):
      return ['Wikipedia ML nəticəsi']

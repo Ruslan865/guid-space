@@ -27,3 +27,4 @@ def analyze_all_responses(query):
             return f"(Seçildi: {name})\n{resp}"
 
     return f"(Bir neçə AI cavabından seçildi)\n{list(responses.values())[0]}"
+

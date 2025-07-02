@@ -1,19 +1,12 @@
 from fpdf import FPDF
 
-def save_to_pdf(query, answers, filename="output.pdf"):
+def save_to_pdf(title, contents):
     pdf = FPDF()
     pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.cell(200, 10, txt=title, ln=1, align='C')
 
-    # Unicode fontu əlavə edirik
-    pdf.add_font('DejaVu', '', 'DejaVuSans.ttf', uni=True)
-    pdf.set_font("DejaVu", size=14)
+    for line in contents:
+        pdf.multi_cell(0, 10, txt=line)
 
-    pdf.cell(200, 10, txt=f"Sual: {query}", ln=True, align="L")
-    pdf.ln(10)
-
-    pdf.set_font("DejaVu", size=12)
-    for answer in answers:
-        pdf.multi_cell(0, 10, txt=answer)
-        pdf.ln(5)
-
-    pdf.output(filename)
+    pdf.output("output.pdf")

@@ -1,0 +1,23 @@
+import zipfile
+import os
+
+def zip_project(folder_path, zip_name):
+    with zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                if file.endswith('.py') or file.endswith('.txt') or file.endswith('.md') or file.endswith('.pdf'):
+                    file_path = os.path.join(root, file)
+                    arcname = os.path.relpath(file_path, folder_path)
+                    zipf.write(file_path, arcname)
+            # Optional: add folders like templates, static etc if needed
+            for dir_name in ['templates', 'static', 'public']:
+                dir_path = os.path.join(folder_path, dir_name)
+                if os.path.exists(dir_path):
+                    for root, _, files in os.walk(dir_path):
+                        for file in files:
+                            file_path = os.path.join(root, file)
+                            arcname = os.path.relpath(file_path, folder_path)
+                            zipf.write(file_path, arcname)
+
+zip_project('.', 'guid-space-full.zip')
+print("ZIP faylı yaradıldı: guid-space-full.zip")

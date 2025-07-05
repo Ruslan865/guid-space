@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8">
-    <title>Al Eye ChatBot</title>
+<meta charset="UTF-8" />
+<title>CatBot Test</title>
+<script>
+async function sendMessage() {
+    const message = document.getElementById('message').value;
+    if (!message) return;
+    const response = await fetch('/chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({message})
+    });
+    const data = await response.json();
+    document.getElementById('reply').innerText = data.reply;
+}
+</script>
 </head>
 <body>
-    <h2>CatBot ilə danış</h2>
-    <input type="text" id="msg" placeholder="Sual ver..." />
-    <button onclick="send()">Göndər</button>
-    <p id="response"></p>
-
-    <script>
-        function send() {
-            const msg = document.getElementById("msg").value;
-            fetch("/chat", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({message: msg})
-            })
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("response").innerText = data.reply;
-            });
-        }
-    </script>
+<h1>CatBot ilə danış</h1>
+<input id="message" type="text" placeholder="Sual yaz" />
+<button onclick="sendMessage()">Göndər</button>
+<p><strong>Cavab:</strong> <span id="reply"></span></p>
 </body>
 </html>
-
